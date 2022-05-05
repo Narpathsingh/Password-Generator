@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url(1.jpg);
+        background-size: cover;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    h2 {
+        color: white;
+    }
+
+    button {
+        padding: 20px;
+        width: 180px;
+        margin-bottom: 8px;
+        margin-left: 5px;
+    }
+
+    button span{
+        font-size: 24px;
+    }
+</style>
+
+<body>
+    <h2>Password Generator</h2>
+    <button class="btn" onclick="generate()"><span>Generate</span></button>
+    <br>
+    <br>
+    <button id="pass" class="btn"></button>
+    <button id="pass1" class="btn"></button>
+    <br>
+    <button id="pass2" class="btn"></button>
+    <button id="pass3" class="btn"></button>
+</body>
+    <script>
+        let Alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+        let number = '1234567890';
+        let symbols = '@#$%^&*()!+-'
+        // dom
+        let Pass = document.getElementById('pass')
+        let Pass1 = document.getElementById('pass1')
+        let Pass2 = document.getElementById('pass2')
+        let Pass3 = document.getElementById('pass3')
+        
+        function generateP(){
+            let pass = ' ';
+            let all = alphabet + Alphabet + number + symbols;
+            // console.log(all)
+            for(let i = 1; i <= 15; i++) {
+                let randomNumber = Math.floor(Math.random() * all.length)
+                pass += all.substring(randomNumber, randomNumber + 1);
+            }   
+            return pass;
+        }
+
+        // display
+        function generate(){
+        Pass.textContent = generateP();
+        Pass1.textContent = generateP();
+        Pass2.textContent = generateP();
+        Pass3.textContent = generateP();
+        }
+    </script>
+</html>
